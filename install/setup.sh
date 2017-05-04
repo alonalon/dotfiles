@@ -48,6 +48,7 @@ echo " Set osxdefaults"
 DOT_FILES=(
     'hushlogin'
     'zshrc'
+    'gitconfig'
     'gitignore'
     'gitinclude'
     'gitattributes'

@@ -1,0 +1,7 @@
+[user]
+	name = alonalon
+	email = aronhafner@gmail.com
+[core]
+	editor = atom --wait
+[include]
+	path = ~/.gitinclude
