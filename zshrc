@@ -5,6 +5,9 @@ source ~/.dotfiles/zsh/exports.zsh
 source ~/.dotfiles/zsh/functions.zsh
 source ~/.dotfiles/zsh/helpers.zsh
 
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' insert-tab pending
+
 # Add `~/.npm-packages` to PATH
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
