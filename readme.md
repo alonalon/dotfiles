@@ -1,12 +1,9 @@
 ```
 $ git clone https://github.com/alonalon/dotfiles .dotfiles
-
-# Symlink zshrc
-$ ln -s path/zshrc .zshrc
 ```
 
 ```
-# Do run setup on clean computer
+# Run setup on clean enviroment
 $ /path/to/install/setup.sh
 ```
 
