@@ -1,5 +1,5 @@
 ```
-$ git clone path
+$ git clone https://github.com/alonalon/dotfiles .dotfiles
 
 # Symlink zshrc
 $ ln -s path/zshrc .zshrc
