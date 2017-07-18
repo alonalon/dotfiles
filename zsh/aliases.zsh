@@ -5,7 +5,10 @@ alias dot='cd ~/.dotfiles/'
 alias h='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias la='ll -a'
+alias la='ls -a'
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
 
 #Reload alias
 alias reload!='. ~/.zshrc'
