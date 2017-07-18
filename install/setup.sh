@@ -26,7 +26,7 @@ link_files() {
 	do
 		src="$(pwd)/$file"
 		dest="${HOME}/.$(printf "%s" "$file" | sed "s/.*\/\(.*\)/\1/g")"
-		ln -s "${src}" "${dest}"
+		ln -fs "${src}" "${dest}"
 		echo "${src} symlinked to: ${dest}"
 	done
 }
@@ -62,7 +62,7 @@ main() {
 	seek_confirmation "Do you want to set osxdefaults?"
 
 	if is_confirmed; then
-		load_file "osxdefaults"
+		./lib/macosdefaults
 	else
 		log "Skipped installing npm packages"
 	fi
