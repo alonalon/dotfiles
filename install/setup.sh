@@ -62,7 +62,7 @@ main() {
 	seek_confirmation "Do you want to set osxdefaults?"
 
 	if is_confirmed; then
-		./lib/macosdefaults
+		./bin/macosdefaults
 	else
 		log "Skipped installing npm packages"
 	fi
