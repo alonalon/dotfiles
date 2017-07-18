@@ -1,67 +1,94 @@
 #!/bin/bash
-
-# Ensure admin account is accessible to brew pacakges
-sudo -v
-sudo chgrp -R admin /usr/local
-sudo chmod -R g+w /usr/local
-
-# Dont continue on error
-set -e
-
-current_path=$(pwd)
-
-command_exists() {
-    type "$1" &>/dev/null
+load_file() {
+	source "./lib/$1.sh" || exit 1
 }
 
 install_antigen() {
-    echo " install_antigen"
-    curl curl https://cdn.rawgit.com/zsh-users/antigen/v1.4.1/bin/antigen.zsh > ~/.dotfiles/zsh/antigen.zsh
+	curl -L git.io/antigen > ~/.dotfiles/zsh/antigen.zsh
 }
 
 install_brew() {
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ./lib/brew
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	load_file "brew"
 }
 
-if ! command_exists antigen; then
-    echo "  Installing antigen for you..."
-    install_antigen
-fi
+link_files() {
+	DOT_FILES=(
+		'shell/hushlogin'
+		'shell/zshrc'
+		'git/gitconfig'
+		'git/gitignore'
+		'git/gitinclude'
+		'git/gitattributes'
+	)
 
-if ! command_exists brew; then
-    echo "  Installing homebrew for you..."
-    install_brew
-fi
+	for file in ${DOT_FILES[@]}
+	do
+		src="$(pwd)/$file"
+		dest="${HOME}/.$(printf "%s" "$file" | sed "s/.*\/\(.*\)/\1/g")"
+		ln -s "${src}" "${dest}"
+		echo "${src} symlinked to: ${dest}"
+	done
+}
 
-# Add zsh to list of shells & set default
-if command_exists zsh; then
-    echo " Add zsh to list of shells & set as default"
-    sudo sh -c "echo /usr/local/bin/zsh >> /etc/shells"
-    sudo chsh -s /usr/local/bin/zsh
-fi
+main() {
+	# Load utils
+	load_file "utils"
 
-# Set osx defaults
-echo " Set osxdefaults"
-./lib/osxdefaults
+	# Ask for sudo permissions
+	ask_for_sudo
 
-DOT_FILES=(
-    'hushlogin'
-    'zshrc'
-    'gitconfig'
-    'gitignore'
-    'gitinclude'
-    'gitattributes'
-)
+	seek_confirmation "Do you want to install antigen?"
 
-for file in ${DOT_FILES[@]}
-do
-    if [ -e ~/.$file ]; then
-        echo "$file already exists"
-    else
-        ln -s $current_path/$file ~/.$file
-        echo "Symlink was created: $file"
-    fi
-done
+	if is_confirmed; then
+		log "Installing antigen for you..."
+		install_antigen
+	else
+		log "Skipped installing antigen"
+	fi
 
-echo "Everything is installed"
+	if ! cmd_exists "brew"; then
+		log "Installing homebrew for you..."
+		install_brew
+	fi
+
+	# Add zsh to list of shells & set default
+	if ! cmd_exists "zsh"; then
+		log "Add zsh to list of shells & set as default"
+		sudo sh -c "echo /usr/local/bin/zsh >> /etc/shells"
+		sudo chsh -s /usr/local/bin/zsh
+	fi
+
+	seek_confirmation "Do you want to set osxdefaults?"
+
+	if is_confirmed; then
+		load_file "osxdefaults"
+	else
+		log "Skipped installing npm packages"
+	fi
+
+	# Install npm packages
+	seek_confirmation "Do you want to install npm packages?"
+
+	if is_confirmed; then
+		load_file "npm"
+	else
+		log "Skipped installing npm packages"
+	fi
+
+	if cmd_exists "npm"; then
+		mkdir -p "${HOME}/.npm-packages"
+		npm config set prefix "${HOME}/.npm-packages"
+	fi
+
+	# Link files
+	seek_confirmation "Warning: this will overwrite your current dotfiles. Continue?"
+
+	if is_confirmed; then
+		link_files
+	else
+		exit
+	fi
+}
+
+main
