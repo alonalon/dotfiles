@@ -12,6 +12,18 @@ install_brew() {
 	load_file "brew"
 }
 
+install_node() {
+	if ! cmd_exists "node"; then
+		log_header "Installing Node.js…"
+		curl -Ls http://git.io/n-install | N_PREFIX=${HOME}/.n bash -s -- -y latest
+	fi
+
+	if cmd_exists "npm"; then
+		mkdir -p "${HOME}/.npm-packages"
+		npm config set prefix "${HOME}/.npm-packages"
+	fi
+}
+
 link_files() {
 	DOT_FILES=(
 		'shell/hushlogin'
@@ -50,6 +62,12 @@ main() {
 	if ! cmd_exists "brew"; then
 		log "Installing homebrew for you..."
 		install_brew
+	fi
+
+	seek_confirmation "Do you want to install node?"
+
+	if is_confirmed; then
+		install_node
 	fi
 
 	# Add zsh to list of shells & set default
