@@ -77,26 +77,12 @@ main() {
 		sudo chsh -s /usr/local/bin/zsh
 	fi
 
-	seek_confirmation "Do you want to set osxdefaults?"
+	seek_confirmation "Do you want to set macosdefaults?"
 
 	if is_confirmed; then
 		./bin/macosdefaults
 	else
-		log "Skipped installing npm packages"
-	fi
-
-	# Install npm packages
-	seek_confirmation "Do you want to install npm packages?"
-
-	if is_confirmed; then
-		load_file "npm"
-	else
-		log "Skipped installing npm packages"
-	fi
-
-	if cmd_exists "npm"; then
-		mkdir -p "${HOME}/.npm-packages"
-		npm config set prefix "${HOME}/.npm-packages"
+		log "Skipped setting macosdefaults"
 	fi
 
 	# Link files
