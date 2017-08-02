@@ -14,7 +14,7 @@ install_brew() {
 
 install_node() {
 	if ! cmd_exists "node"; then
-		log_header "Installing Node.js…"
+		log "Installing Node.js…"
 		curl -Ls http://git.io/n-install | N_PREFIX=${HOME}/.n bash -s -- -y latest
 	fi
 
