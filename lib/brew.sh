@@ -10,7 +10,6 @@ install_packages() {
 		n
 		moreutils
 		wget --with-iri
-		yarn
 		zsh
 		zsh-syntax-highlighting
 	)
