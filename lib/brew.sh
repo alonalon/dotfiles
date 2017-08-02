@@ -7,7 +7,6 @@ install_packages() {
 		gnu-sed --with-default-names
 		homebrew/dupes/grep
 		homebrew/dupes/openssh
-		n
 		moreutils
 		wget --with-iri
 		zsh
