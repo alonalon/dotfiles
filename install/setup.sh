@@ -71,10 +71,12 @@ main() {
 	fi
 
 	# Add zsh to list of shells & set default
-	if ! cmd_exists "zsh"; then
+	seek_confirmation "Do you want to set zsh as default shell"
+	
+	if is_confirmed "zsh"; then
 		log "Add zsh to list of shells & set as default"
-		sudo sh -c "echo /usr/local/bin/zsh >> /etc/shells"
-		sudo chsh -s /usr/local/bin/zsh
+		sudo sh -c "echo "$(which zsh)" >> /etc/shells"
+		sudo chsh -s $(which zsh)
 	fi
 
 	seek_confirmation "Do you want to set macosdefaults?"
