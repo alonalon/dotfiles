@@ -59,7 +59,9 @@ main() {
 		log "Skipped installing antigen"
 	fi
 
-	if ! cmd_exists "brew"; then
+	seek_confirmation "Do you want to install homebrew?"
+
+	if is_confirmed; then
 		log "Installing homebrew for you..."
 		install_brew
 	fi
@@ -71,7 +73,9 @@ main() {
 	fi
 
 	# Add zsh to list of shells & set default
-	if ! cmd_exists "zsh"; then
+	seek_confirmation "Do you want to set zsh as default shell?"
+
+	if is_confirmed; then
 		log "Add zsh to list of shells & set as default"
 		sudo sh -c "echo /usr/local/bin/zsh >> /etc/shells"
 		sudo chsh -s /usr/local/bin/zsh
