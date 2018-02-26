@@ -2,7 +2,7 @@
 #
 # A git hook to make sure user.email exists before committing
 
-EMAIL_PERSONAL="antoon.johansson@gmail.com"
+EMAIL_PERSONAL="aronhafner@gmail.com"
 EMAIL_WORK="$WORK_EMAIL"
 
 ORIGIN_PERSONAL="github.com"
