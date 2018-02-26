@@ -1,5 +1,5 @@
 # Dotfiles
-> My macOS dotfiles with antigen
+> My macOS dotfiles with [antigen](https://github.com/zsh-users/antigen) & [pure](https://github.com/sindresorhus/pure)
 
 ```
 $ git clone https://github.com/alonalon/dotfiles .dotfiles
