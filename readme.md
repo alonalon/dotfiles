@@ -1,3 +1,6 @@
+# Dotfiles
+> My macOS dotfiles
+
 ```
 $ git clone https://github.com/alonalon/dotfiles .dotfiles
 ```
