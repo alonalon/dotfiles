@@ -5,8 +5,6 @@ install_packages() {
 		findutils
 		git
 		gnu-sed --with-default-names
-		homebrew/dupes/grep
-		homebrew/dupes/openssh
 		moreutils
 		wget --with-iri
 		zsh
