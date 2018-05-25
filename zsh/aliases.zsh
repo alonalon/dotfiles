@@ -1,6 +1,6 @@
 # Quick navigation aliases
 alias d='cd ~/Dev/'
-alias dw='cd ~/Dev/work'
+alias w='cd ~/Dev/Work'
 alias dot='cd ~/.dotfiles/'
 alias h='cd ~'
 alias ..='cd ..'

@@ -25,3 +25,12 @@ $ /path/to/install/setup.sh
 $ echo "export WORK_EMAIL=email@my-business.com" >> ~/.privaterc
 $ echo "export WORK_GIT_HOSTNAME=some-hostname" >> ~/.privaterc
 ```
+
+# Link `.privaterc` to sourcefiles in zshrc
+
+```
+$ source ~/.privaterc
+```
+
+### Note:
+If git-template hooks are not planned to be used, set correct email in gitconfig

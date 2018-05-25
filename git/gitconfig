@@ -1,7 +1,9 @@
 [user]
 	name = alonalon
-	email = aronhafner@gmail.com
+	email = "not-configured"
 [core]
 	editor = atom --wait
 [include]
 	path = ~/.gitinclude
+[init]
+	templatedir = ~/.dotfiles/git-template
