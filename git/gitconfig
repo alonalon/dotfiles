@@ -2,7 +2,7 @@
 	name = alonalon
 	email = "not-configured"
 [core]
-	editor = atom --wait
+	editor = code --wait
 [include]
 	path = ~/.gitinclude
 [init]
