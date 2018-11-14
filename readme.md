@@ -20,13 +20,12 @@ $ /path/to/install/setup.sh
 
 
 ### Export variables for git
-
 ```
 $ echo "export WORK_EMAIL=email@my-business.com" >> ~/.privaterc
 $ echo "export WORK_GIT_HOSTNAME=some-hostname" >> ~/.privaterc
 ```
 
-# Link `.privaterc` to sourcefiles in zshrc
+### Link `.privaterc` to sourcefiles in zshrc
 
 ```
 $ source ~/.privaterc
