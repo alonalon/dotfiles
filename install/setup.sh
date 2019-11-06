@@ -12,6 +12,10 @@ install_brew() {
 	load_file "brew"
 }
 
+install_cask() {
+	load_file "cask"
+}
+
 install_node() {
 	if ! cmd_exists "node"; then
 		log "Installing Node.js…"
@@ -64,6 +68,13 @@ main() {
 	if is_confirmed; then
 		log "Installing homebrew for you..."
 		install_brew
+	fi
+
+	seek_confirmation "Do you want to install Apps with brew cask?"
+
+	if is_confirmed; then
+		log "Installing Applications.."
+		install_cask
 	fi
 
 	seek_confirmation "Do you want to install node?"
