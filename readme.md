@@ -18,6 +18,12 @@ $ /path/to/install/setup.sh
 - Set defaults on macOS
 - Set zsh as default shell
 
+### Set git config
+don't set this configs if git-templates are planned to be used
+```
+git config --global user.name "Username"
+git config --global user.email "user@email.com"
+```
 
 ### Export variables for git
 ```
