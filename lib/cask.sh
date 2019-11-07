@@ -12,12 +12,16 @@ install_packages() {
 		the-unarchiver
 		visual-studio-code
 		vlc
+		font-hack
 	)
-
+	
 	brew cask install --appdir="/Applications" "${PACKAGES[@]}"
 }
 
 main() {
+	# fetch cask-fonts
+	brew tap homebrew/cask-fonts
+
 	# Install packages
 	install_packages
 
