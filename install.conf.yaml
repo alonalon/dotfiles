@@ -1,0 +1,62 @@
+- defaults:
+    link:
+      create: true
+      glob: true
+      relink: true
+
+- clean: [
+  '~',
+  '~/Library/Application Support/Code/User'
+]
+
+- shell:
+  - git submodule update --init --recursive
+  - curl -Ls http://git.io/n-install | N_PREFIX=${HOME}/.n bash -s -- -y latest
+  - curl -L git.io/antigen > ~/.dotfiles/zsh/antigen.zsh
+  - mkdir -p ${HOME}/Dev ${HOME}/.npm-packages
+
+- tap:
+  - homebrew/cask-fonts
+
+- brew: [
+  coreutils,
+  findutils,
+  git,
+  moreutils,
+  wget,
+  zsh,
+  zsh-syntax-highlighting
+]
+
+- cask: [
+  firefox,
+  homebrew/cask-versions/google-chrome-beta,
+  hyper,
+  slack,
+  spotify,
+  postman,
+  spectacle,
+  the-unarchiver,
+  visual-studio-code,
+  vlc,
+  font-hack
+]
+
+- link:
+    ~/.screenrc: shell/screenrc #Switch ?
+    ~/.zshrc: shell/.zshrc
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore: git/gitignore
+    ~/.gitinclude: git/gitinclude
+    ~/.gitattributes: git/gitattributes
+    ~/bin: bin
+    ~/.hyper.js: misc/hyper.js
+    ~/Library/Application Support/Code/User:
+      force: true
+      path: code/*
+
+- shell:
+  - source ${HOME}/.zshrc
+  - sudo sh -c "echo $(which zsh) >> /etc/shells"
+  - chsh -s $(which zsh)
+  - npm config set prefix ${HOME}/.npm-packages
