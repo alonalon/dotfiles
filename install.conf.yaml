@@ -43,8 +43,8 @@
 ]
 
 - link:
-    ~/.screenrc: shell/screenrc #Switch ?
-    ~/.zshrc: shell/.zshrc
+    ~/.screenrc: shell/screenrc
+    ~/.zshrc: shell/zshrc
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
     ~/.gitinclude: git/gitinclude
