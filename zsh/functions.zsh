@@ -10,14 +10,15 @@ npmls() {
 	npm ls -gp | awk -F/ '/node_modules/ && !/node_modules.*node_modules/ {print $NF}'
 }
 
-# `s` with no arguments opens the current directory in Sublime Text, otherwise opens the given location
-function s() {
+# `c` with no arguments opens the current directory in VSCode, otherwise opens the given location
+function c() {
 	if [ $# -eq 0 ]; then
-		subl .;
+		code .;
 	else
-		subl "$@";
+		code "$@";
 	fi;
 }
+
 
 # `o` with no arguments opens the current directory, otherwise opens the given location
 function o() {
