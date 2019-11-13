@@ -14,7 +14,7 @@
 	"codemetrics.basics.CodeLensEnabled": false,
 	"editor.cursorBlinking": "solid",
 	"editor.dragAndDrop": false,
-	"editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontSize": 16,
 	"editor.formatOnPaste": false,
 	"editor.insertSpaces": false,
@@ -97,10 +97,10 @@
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"workbench.editor.showIcons": false,
 	"workbench.editor.tabSizing": "shrink",
-	"workbench.iconTheme": "vs-minimal",
 	"workbench.startupEditor": "newUntitledFile",
 	"workbench.tips.enabled": false,
 	"xo.enable": true,
 	"npm-intellisense.showBuildInLibs": true,
-	"npm-intellisense.scanDevDependencies": true
+	"npm-intellisense.scanDevDependencies": true,
+	"editor.defaultFormatter": "samverschueren.linter-xo"
 }
