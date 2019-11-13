@@ -1,24 +1,32 @@
 source ~/.dotfiles/zsh/antigen.zsh
-source ~/.dotfiles/zsh/aliases.zsh
-source ~/.dotfiles/zsh/git-aliases.zsh
-source ~/.dotfiles/zsh/exports.zsh
-source ~/.dotfiles/zsh/functions.zsh
-source ~/.dotfiles/zsh/helpers.zsh
 
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' insert-tab pending
+load_files() {
+	declare -a FILES=(
+		${HOME}/.dotfiles/zsh/aliases.zsh
+		${HOME}/.dotfiles/zsh/git-aliases.zsh
+		${HOME}/.dotfiles/zsh/exports.zsh
+		${HOME}/.dotfiles/zsh/functions.zsh
+		${HOME}/.dotfiles/zsh/helpers.zsh
+	)
 
-# Add `~/.npm-packages` to PATH
-export NPM_PACKAGES="${HOME}/.npm-packages"
-export PATH="$NPM_PACKAGES/bin:$PATH"
+	for x in "${FILES[@]}"; do
+		[[ -f "$x" ]] && source "$x"
+	done
+}
 
-# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-unset MANPATH
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+# Source other files
+load_files
+
 export PATH="/usr/local/sbin:$PATH"
 
-# Added by n-install (see http://git.io/n-install-repo).
-export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+# Append history as commands are executed
+setopt inc_append_history
+
+# Don't save duplicates
+setopt hist_ignore_all_dups
+
+# Treat #, ~, and ^ as part of patterns for filename generation
+setopt extended_glob
 
 # Load antigen packages
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -28,3 +36,5 @@ antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 
 antigen apply
+
+unset load_files
