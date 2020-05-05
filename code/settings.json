@@ -16,7 +16,7 @@
 	"editor.dragAndDrop": false,
 	"editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
 	"editor.fontSize": 16,
-	"editor.formatOnPaste": false,
+	"editor.formatOnPaste": true,
 	"editor.insertSpaces": false,
 	"editor.multiCursorModifier": "ctrlCmd",
 	"editor.quickSuggestions": {
@@ -79,7 +79,6 @@
 		"**/dist": true,
 		"**/build": true
 	},
-	"search.location": "panel",
 	"search.useIgnoreFilesByDefault": true,
 	"search.smartCase": true,
 	"sublimeTextKeymap.promptV3Features": true,
@@ -102,5 +101,8 @@
 	"xo.enable": true,
 	"npm-intellisense.showBuildInLibs": true,
 	"npm-intellisense.scanDevDependencies": true,
-	"editor.defaultFormatter": "samverschueren.linter-xo"
+	"editor.defaultFormatter": "samverschueren.linter-xo",
+	"editor.formatOnSave": false,
+	"typescriptHero.imports.insertSemicolons": false,
+	"xo.format.enable": true
 }

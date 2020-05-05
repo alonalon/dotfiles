@@ -6,12 +6,12 @@
 	},
 	"consoleError": {
 		"prefix": "cerr",
-		"body": "console.error(${1:object}, '${1:object}');",
+		"body": "console.error('${1:object}', ${1:object});",
 		"description": "Displays a message in the console and also includes a stack trace from where the method was called"
 	},
 	"consoleLog": {
 		"prefix": "clog",
-		"body": "console.log(${1:object}, '${1:object}');$0",
+		"body": "console.log('${1:object}', ${1:object});$0",
 		"description": "Displays a message in the console"
 	},
 	"destructingObject": {
