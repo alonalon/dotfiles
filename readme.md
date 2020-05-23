@@ -1,25 +1,24 @@
 # Dotfiles
-> My macOS dotfiles with [antigen](https://github.com/zsh-users/antigen) & [pure](https://github.com/sindresorhus/pure)
+> Dotfiles with zsh, antigen, pure prompt, git, brew, etc
 
+## Install
 ```
 $ git clone https://github.com/alonalon/dotfiles .dotfiles
+$ cd dotfiles
+$ ./install
 ```
 
-```
-# Run setup script
-$ /path/to/install/setup.sh
-```
-
-### Setup script
+### Setup script will do
+- Add [dotbot](https://github.com/anishathalye/dotbot) as submodule
 - Install antigen and generate a new antigen.zsh file in zsh path
 - Install [Homebrew](https://github.com/Homebrew/brew)
 - Install node with [N Node version manager](https://github.com/tj/n)
-- Symlink files
 - Set defaults on macOS
 - Set zsh as default shell
 
 ### Set git config
 don't set this configs if git-templates are planned to be used
+
 ```
 git config --global user.name "Username"
 git config --global user.email "user@email.com"
