@@ -112,18 +112,17 @@ sudo systemsetup -settimezone "Europe/Stockholm" > /dev/null
 # Enable lid wakeup
 sudo pmset -a lidwake 0
 
-
 # Restart automatically if the computer freezes
 # sudo systemsetup -setrestartfreeze on
 
-# Sleep the display after 15 minutes
-sudo pmset -a displaysleep 15
+# Sleep the display after 5 minutes
+# sudo pmset -a displaysleep 5
 
 # Disable machine sleep while charging
-sudo pmset -c sleep 0
+# sudo pmset -c sleep 0
 
 # Set machine sleep to 5 minutes on battery
-sudo pmset -b sleep 5
+# sudo pmset -b sleep 10
 
 # Set standby delay to 24 hours (default is 1 hour)
 # sudo pmset -a standbydelay 86400
@@ -204,7 +203,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+sudo chflags nohidden ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
@@ -304,9 +303,6 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 # Prevent Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-# Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
-
 ###############################################################################
 # Activity Monitor                                                            #
 ###############################################################################
@@ -405,7 +401,7 @@ for app in "Activity Monitor" \
 	"Google Chrome" \
 	"Safari" \
 	"SystemUIServer" \
-	"Transmission" \
+	"Transmission";
 	do
 	killall "${app}" &> /dev/null
 done

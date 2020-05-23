@@ -46,20 +46,20 @@
 ]
 
 - link:
-    ~/.screenrc: shell/screenrc
-    ~/.zshrc: shell/zshrc
-    ~/.gitconfig: git/gitconfig
-    ~/.gitignore: git/gitignore
-    ~/.gitinclude: git/gitinclude
-    ~/.gitattributes: git/gitattributes
-    ~/bin: bin
-    ~/.hyper.js: misc/hyper.js
-    ~/Library/Application Support/Code/User:
-      force: true
-      path: code/*
+  ~/.screenrc: shell/screenrc
+  ~/.zshrc: shell/zshrc
+  ~/.gitconfig: git/gitconfig
+  ~/.gitignore: git/gitignore
+  ~/.gitinclude: git/gitinclude
+  ~/.gitattributes: git/gitattributes
+  ~/.hyper.js: misc/hyper.js
+  ~/Library/Application Support/Code/User:
+    force: true
+    path: code/*
 
 - shell:
   - source ${HOME}/.zshrc
   - sudo sh -c "echo $(which zsh) >> /etc/shells"
   - chsh -s $(which zsh)
   - npm config set prefix ${HOME}/.npm-packages
+  - ./bin/macosdefaults
