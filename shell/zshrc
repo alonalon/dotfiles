@@ -3,7 +3,6 @@ source ~/.dotfiles/zsh/antigen.zsh
 load_files() {
 	declare -a FILES=(
 		${HOME}/.dotfiles/zsh/aliases.zsh
-		${HOME}/.dotfiles/zsh/git-aliases.zsh
 		${HOME}/.dotfiles/zsh/exports.zsh
 		${HOME}/.dotfiles/zsh/functions.zsh
 		${HOME}/.dotfiles/zsh/helpers.zsh
