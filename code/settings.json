@@ -12,6 +12,7 @@
 		"xml"
 	],
 	"codemetrics.basics.CodeLensEnabled": false,
+	"debug.javascript.codelens.npmScripts": "never",
 	"editor.cursorBlinking": "solid",
 	"editor.dragAndDrop": false,
 	"editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
