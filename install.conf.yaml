@@ -1,12 +1,11 @@
 - defaults:
     link:
       create: true
-      glob: true
       relink: true
+      glob: true
 
 - clean: [
-  '~',
-  '~/Library/Application Support/Code/User'
+  '~'
 ]
 
 - shell:
@@ -46,16 +45,17 @@
 ]
 
 - link:
-  ~/.screenrc: shell/screenrc
-  ~/.zshrc: shell/zshrc
-  ~/.gitconfig: git/gitconfig
-  ~/.gitignore: git/gitignore
-  ~/.gitinclude: git/gitinclude
-  ~/.gitattributes: git/gitattributes
-  ~/.hyper.js: misc/hyper.js
-  ~/Library/Application Support/Code/User:
-    force: true
-    path: code/*
+    ~/.screenrc: shell/screenrc
+    ~/.zshrc:
+      force: true
+      path: shell/zshrc
+    ~/.gitconfig:
+      force: true
+      path: git/gitconfig
+    ~/.gitignore: git/gitignore
+    ~/.gitinclude: git/gitinclude
+    ~/.gitattributes: git/gitattributes
+    ~/.hyper.js: misc/hyper.js
 
 - shell:
   - source ${HOME}/.zshrc
