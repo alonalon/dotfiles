@@ -24,10 +24,19 @@ git config --global user.name "Username"
 git config --global user.email "user@email.com"
 ```
 
+## If use git-hooks
+
 ### Export variables for git
 ```
 $ echo "export WORK_EMAIL=email@my-business.com" >> ~/.privaterc
 $ echo "export WORK_GIT_HOSTNAME=some-hostname" >> ~/.privaterc
+```
+
+Set git config to
+
+```
+git config --global user.email "not-configured"
+```
 ```
 
 ### Link `.privaterc` to sourcefiles in zshrc
