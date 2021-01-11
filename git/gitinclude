@@ -59,7 +59,7 @@
 	po = !bash -c 'git push origin ${1-master}' -
 
 	# Checkout latest changes
-	pr = !bash -c 'git pull --rebase ${1-origin} ${2-master} && git submodule foreach git pull --rebase origin master' -
+	pr = !bash -c 'git pull --rebase ${1-origin} ${2-master}' -
 
 	# Checkout pull request
 	pre = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
