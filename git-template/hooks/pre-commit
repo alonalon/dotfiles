@@ -8,6 +8,8 @@ EMAIL_WORK="$WORK_EMAIL"
 ORIGIN_PERSONAL="github.com"
 ORIGIN_WORK="$WORK_GIT_HOSTNAME"
 
+USER_PERSONAL="hafffe"
+
 EMAIL=$(git config user.email)
 ORIGIN=$(git config remote.origin.url)
 
@@ -16,6 +18,7 @@ if [ "$EMAIL" = "not-configured" ]; then
         echo "Setting 'user.email' to '$EMAIL_PERSONAL'"
         echo "Re-run the commit"
         git config user.email $EMAIL_PERSONAL
+        git config user.name $USER_PERSONAL
     elif [[ "$ORIGIN" == *"$ORIGIN_WORK"* ]]; then
         echo "Setting 'user.email' to '$EMAIL_WORK'"
         echo "Re-run the commit"
