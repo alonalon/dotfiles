@@ -105,5 +105,11 @@
 	"editor.defaultFormatter": "samverschueren.linter-xo",
 	"editor.formatOnSave": false,
 	"typescriptHero.imports.insertSemicolons": false,
-	"xo.format.enable": true
+	"xo.format.enable": true,
+	"workbench.editorAssociations": [
+		{
+			"viewType": "default",
+			"filenamePattern": "git-rebase-todo"
+		}
+	]
 }
