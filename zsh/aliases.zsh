@@ -33,3 +33,4 @@ alias gs="git s"
 # OSX specific aliases
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles TRUE;killall Finder'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles FALSE;killall Finder'
+alias pwdc='pwd|pbcopy'
