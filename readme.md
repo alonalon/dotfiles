@@ -16,28 +16,19 @@ $ ./install
 - Set defaults on macOS
 - Set zsh as default shell
 
-### Set git config
-don't set this configs if git-templates are planned to be used
+
+## If use git-hooks and git-templates
 
 ```
-git config --global user.name "Username"
-git config --global user.email "user@email.com"
+git config --global user.name "not-configured"
+git config --global --unset user.email
 ```
-
-## If use git-hooks
-
-### Export variables for git
+#### Export variables for git
 ```
 $ echo "export WORK_EMAIL=email@my-business.com" >> ~/.privaterc
 $ echo "export WORK_GIT_HOSTNAME=some-hostname" >> ~/.privaterc
 ```
 
-Set git config to
-
-```
-git config --global user.email "not-configured"
-```
-```
 
 ### Link `.privaterc` to sourcefiles in zshrc
 
@@ -46,4 +37,4 @@ $ source ~/.privaterc
 ```
 
 ### Note:
-If git-template hooks are not planned to be used, set correct email in gitconfig
+If git-template hooks are not planned to be used, set / keep correct email in gitconfig
