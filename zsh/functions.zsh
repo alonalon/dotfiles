@@ -7,7 +7,7 @@ md() {
 
 # List globally installed npm packages
 npmls() {
-	npm ls -gp | awk -F/ '/node_modules/ && !/node_modules.*node_modules/ {print $NF}'
+	npm list -g --depth 0
 }
 
 # `c` with no arguments opens the current directory in VSCode, otherwise opens the given location
