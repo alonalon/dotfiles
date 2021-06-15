@@ -1,5 +1,6 @@
 [user]
-	email = "not-configured"
+	email = aronhafner@gmail.com
+	name = hafffe
 [core]
 	editor = code --wait
 [include]
